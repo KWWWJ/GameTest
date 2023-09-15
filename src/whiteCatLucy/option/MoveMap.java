@@ -4,6 +4,7 @@ import java.util.Scanner;
 import whiteCatLucy.map.*;
 
 public class MoveMap {
+	Scanner scan = new Scanner(System.in);
 	Select s = new Select();
 	Alley alley = new Alley();
 	InsideDarkForest forest = new InsideDarkForest();
@@ -12,18 +13,18 @@ public class MoveMap {
 	InsideShineCloud cloud = new InsideShineCloud();
 	Road road = new Road();
 	public int result;
-	public String key;
 	public boolean event;
 	
-	
-	Scanner scan = new Scanner(System.in);
-	public int mapSelect;
-	
-	public void setKey() {
-		UserSelect us = new UserSelect();
-		us.setKey();
-		key = us.key;
+	public void mapKey(String key) {
+		alley.setKey(key);
+		forest.setKey(key);
+		home.setKey(key);
+		cave.setKey(key);
+		cloud.setKey(key);
+		road.setKey(key);
 	}
+
+	public int mapSelect;
 	
 	public int beforMove() {
 		System.out.println("[이동하시겠습니까?]\n"
@@ -41,32 +42,26 @@ public class MoveMap {
 			case 1:
 				alley.alley();
 				result = alley.result;
-				
 				break;
 			case 2:	
 				forest.darkForest();
 				result = forest.result;
-				
 				break;
 			case 3:
 				home.home();
 				result = home.result;
-				
 				break;
 			case 4:
 				cave.jewelCave();
 				result = cave.result;
-				
 				break;
 			case 5:
 				cloud.shineCloud();
 				result = cloud.result;
-				
 				break;
 			case 6:
 				road.road();
 				result = road.result;
-				
 				break;
 			default:
 				break;

@@ -6,14 +6,8 @@ import whiteCatLucy.option.MoveMap;
 
 
 public class InsideShineCloud{
-	public String key;
+	private String key;
 	public int result;
-	
-	public void setKey() {
-		MoveMap mm = new MoveMap();
-		mm.setKey();
-		key = mm.key;
-	}
 	
 	public void shineCloud() {
 		if(key == "의심많은")
@@ -30,5 +24,11 @@ public class InsideShineCloud{
 		else {
 			System.out.println("[루시는 소파같이 폭신한 구름 위에서 뒹굴었습니다.]");
 		}
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
 	}
 }

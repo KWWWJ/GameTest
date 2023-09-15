@@ -5,14 +5,8 @@ import whiteCatLucy.event.IncidentEvent;
 import whiteCatLucy.option.MoveMap;
 
 public class Road{
-	public String key;
+	private String key;
 	public int result;
-	
-	public void setKey() {
-		MoveMap mm = new MoveMap();
-		mm.setKey();
-		key = mm.key;
-	}
 	
 	public void road() {
 		if((key == "의심많은" ||
@@ -31,5 +25,11 @@ public class Road{
 		else {
 			System.out.println("[그다지 나가고싶은 기분이 아닙니다.]");
 		}
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
 	}
 }

@@ -5,14 +5,8 @@ import whiteCatLucy.event.IncidentEvent;
 import whiteCatLucy.option.MoveMap;
 
 public class InsideDarkForest {
-	public String key;
+	private String key;
 	public int result;
-	
-	public void setKey() {
-		MoveMap mm = new MoveMap();
-		mm.setKey();
-		key = mm.key;
-	}
 	
 	public void darkForest() {
 		if(key == "활발한" ||
@@ -30,5 +24,11 @@ public class InsideDarkForest {
 		else {
 			System.out.println("[루시의 호기심은 잠잠한 상태입니다...]");
 		}
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
 	}
 }

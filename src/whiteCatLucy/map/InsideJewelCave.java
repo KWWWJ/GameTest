@@ -5,14 +5,8 @@ import java.util.Random;
 import whiteCatLucy.option.MoveMap;
 
 public class InsideJewelCave{
-	public String key;
+	private String key;
 	public int result;
-	
-	public void setKey() {
-		MoveMap mm = new MoveMap();
-		mm.setKey();
-		key = mm.key;
-	}
 	
 	public void jewelCave() {
 		if((key == "활발한" ||
@@ -32,5 +26,11 @@ public class InsideJewelCave{
 		else {
 			System.out.println("[루시는 지금 보석에 그다지 흥미가 없습니다.]");
 		}
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
 	}
 }

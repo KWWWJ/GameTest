@@ -6,14 +6,8 @@ import whiteCatLucy.option.MoveMap;
 
 
 public class InsideHome{
-	public String key;
+	private String key;
 	public int result;
-	
-	public void setKey() {
-		MoveMap mm = new MoveMap();
-		mm.setKey();
-		key = mm.key;
-	}
 	
 	public void home() {
 		if(key == "활발한" || 
@@ -35,5 +29,11 @@ public class InsideHome{
 		else {
 			System.out.println("[루시는 지금 집에도 들어가고 싶지 않습니다.]");
 		}
+	}
+	public String getKey() {
+		return key;
+	}
+	public void setKey(String key) {
+		this.key = key;
 	}
 }

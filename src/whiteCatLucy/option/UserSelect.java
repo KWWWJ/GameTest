@@ -6,14 +6,10 @@ public class UserSelect {
 	Scanner scan = new Scanner(System.in);
 	MoveMap mm = new MoveMap();
 	Rest r = new Rest();
-	public int result;
 	public String key;
+	public int result;
 	public String item = null;
 	public boolean event;
-	
-	public void setKey() {
-		mm.key = key;
-	}
 	
 	public void userSelect() {
 		System.out.println();
@@ -26,6 +22,7 @@ public class UserSelect {
 		
 		switch(mySelect) {
 		case 1:
+			mm.mapKey(key);
 			mm.beforMove();
 			result = mm.result;
 			event = true;
