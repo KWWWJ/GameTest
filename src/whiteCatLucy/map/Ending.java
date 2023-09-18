@@ -1,7 +1,8 @@
-package whiteCatLucy.map;
+package WhiteCatLucy.map;
 
 public class Ending {
 	public void ending() {
+		//엔당스크립트. 여러 분기를 만들예정
 		System.out.println("[루시는 주변을 감싸는 현실이 아리정이처럼 일렁이는 것을 알 수 있었습니다.]\n"
 				+"[모든것을 깨달은 그녀는 더이상 진실을 마주라기 위해 마음을 다잡았습니다.]\n"
 				+"[천상의 천사가 강림하듯, 하늘에 빛의 커튼이 드리우고 거대한 눈동자가 그녀를 주시하자, 이 이상 두려워 할 것은 없어보였습니다.]\\n"

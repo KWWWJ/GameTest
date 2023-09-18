@@ -1,14 +1,11 @@
-package whiteCatLucy.script;
+package WhiteCatLucy.script;
 
-import whiteCatLucy.option.Select;
+import WhiteCatLucy.option.Select;
 
 public class SystemScript{
 	Select s = new Select();
-	String tendency;
-	int fullness;
-	int intellect;
-	int caution;
 	public void tutoral() {
+		//main에서 해당 스크립트 출력
 		System.out.println("[하얀 고양이 루시는 그리운 목소리에 천천히 눈꺼풀을 들어 올렸습니다.]\n\n"
 				+ "[그녀는 주변을 감싼 따듯한 온기에 온몸이 노곤해져 금방이라도 폭신한 소파에 몸을 뉘이고 싶었지만, 코끝을 스치는 참치의 향에\r\n"
 				+ "홀린 듯이 부얶으로 앞발이 내딪여졌습니다.]\n\n"
@@ -18,14 +15,13 @@ public class SystemScript{
 		if(s.select() == true) {
 			System.out.println("[루시는 참을 수 없는 유혹에 살짝 열려있는 부얶문을 밀고 들어가 홀연히 놓여있는 참치캔을 개눈 감추듯 먹어치워버렸습니다.]\r\n\n"
 					+ "[노곤한 몸에 기분 좋은 포만감까지 더해지니 스륵 눈이 감기는 것은 한순간이였습니다.]");
-			fullness += 1;
-			System.out.println("[루시의 포만감이 "+fullness+"이/가 되었습니다.]");
+			System.out.println("[루시의 포만감이 1이/가 되었습니다.]");
+			//게임에 본격적으로 들어가게되면 초기화 상태로 시작한다.
 		}
 		else {
 			System.out.println("[루시는 초묘적인 인내심으로 그 유혹을 견뎌내었습니다.]\n[비록 입에서는 침이 고이는 것 같지만 똑똑한 고양이 루시는"
 					+ " 한 번 정한 결정을 돌이키는 법이 없었습니다.]\n[잠시후, 루시는 입가에 묻은 연한 갈색의 무언가를 털어내고 폭신한 소파에 몸을 뉘였습니다.]");
-			fullness += 1;
-			System.out.println("[루시의 포만감이 "+fullness+"이/가 되었습니다.]\n\n");
+			System.out.println("[루시의 포만감이 1이/가 되었습니다.]\n\n");
 		}
 	}
 	public void tutoral2() {
