@@ -1,4 +1,4 @@
-package WhiteCatLucy.map;
+package whiteCatLucy.map;
 
 import java.util.Random;
 import java.util.Scanner;

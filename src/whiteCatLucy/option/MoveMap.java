@@ -1,7 +1,7 @@
-package WhiteCatLucy.option;
+package whiteCatLucy.option;
 
 import java.util.Scanner;
-import WhiteCatLucy.map.*;
+import whiteCatLucy.map.*;
 
 public class MoveMap {
 	//플레이어가 활동할 맵을 선택하는 클래스

@@ -1,4 +1,4 @@
-package WhiteCatLucy.option;
+package whiteCatLucy.option;
 
 import java.util.Scanner;
 

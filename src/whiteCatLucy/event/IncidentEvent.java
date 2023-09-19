@@ -1,11 +1,10 @@
-package WhiteCatLucy.event;
+package whiteCatLucy.event;
 
 import java.util.Scanner;
 
-import WhiteCatLucy.character.Item;
-import WhiteCatLucy.character.STATE;
-import WhiteCatLucy.map.Ending;
-import WhiteCatLucy.option.Select;
+import whiteCatLucy.character.STATE;
+import whiteCatLucy.map.Ending;
+import whiteCatLucy.option.Select;
 
 
 public class IncidentEvent {
@@ -31,7 +30,7 @@ public class IncidentEvent {
 	public int intellect;
 	//main에서 적용한 능력치를 토대로 조건 확인
 	public boolean check = false;
-	int state;
+	public int state;
 	//enum을 실행한다.
 	
 	public STATE statusUp() {
@@ -65,6 +64,31 @@ public class IncidentEvent {
 	public void setItem(String item) {
 		this.item = item;
 	}
+	public void itemCheck() {
+		switch(result) {
+		case 0:
+			itemCheck = "스페이드 에이스";
+			break;
+		case 3:
+			itemCheck = "검은 깃털";
+			break;
+		case 5:
+			itemCheck = "오색보석";
+			itemCheck = "찬란한 칠색보석";
+			break;
+		case 6:
+			itemCheck = "영롱하게 빛나는 둥근 수정";
+			break;
+		case 7:
+			itemCheck = "스페이드 에이스";
+			break;	
+		case 9:
+			itemCheck = "파란 스카프";
+			break;
+		default:
+			break;
+		}
+	}
 	
 	public void incidentEvent() {
 	//각 맵당 2개씩 (집, 구름은 1개씩)
@@ -74,10 +98,10 @@ public class IncidentEvent {
 			System.out.println("[루시는 평소와 달리 적막함이 감도는 골목을 주시했습니다.]\n"
 					+ "[널부러진 쓰레기들과 다색의 털들이 이곳에서 무언가 일이 일어났다는 것을 알려주는 듯 했죠.]\n"
 					+ "[루시는 털이 곤두서는 불안함을 느끼며 어떻게 할지 고민했습니다.]\n"
-					+ "[해금 아이템 : 스페이드 에이스]"
+					+ "[해금 아이템 : 스페이드 에이스]\n"
 					+ "[1.돌아간다.]\r[2.조사한다.]\r");
-			itemCheck = "포커카드 : 스페이드 에이스";
-			if(tendencyKey == "활발한" && check == true) {
+			
+			if(check == true) {
 				//만약 설정된 성격이 조건을 만족한다면 실행한다.
 				System.out.println("[조건을 만족하여 특수 선택지가 생성되었습니다.]\n");
 				System.out.print("[3.나아간다.]\n");
@@ -105,7 +129,7 @@ public class IncidentEvent {
 					iU=1;
 					break;
 				case 3:
-					if(tendencyKey == "활발한" && check == true) {
+					if(check == true) {
 						System.out.println("[루시는 용감하게 어둡고 습한 골목길을 지나 검은 나무들이 즐비한 숲을 발견했습니다.]\n"
 								+"[루시는 호기심에 숲을 오래도록 쳐다보았습니다..]");
 						state = 0;
@@ -154,7 +178,7 @@ public class IncidentEvent {
 					case 3:
 						if(tendencyKey == "활발한") {
 							System.out.println("[루시는 이 세상 모든 것들이 어쩌면 진짜가 아닐지도 모른다고 생각합니다.]\n");
-							item = "포커카드 : 스페이드 에이스";
+							item = "스페이드 에이스";
 							state = 3;
 							iU=+3;
 						}
@@ -197,9 +221,9 @@ public class IncidentEvent {
 				System.out.println("[어둡고 습한 숲, 루시는 어딘가 낮설지만은 않은 기시감을 느꼈습니다.]\n"
 						+ "[언제든 이런 곳에 왔었다면 기억할 법도 한데 전혀 떠오르지 않아 답답함을 느끼면서도 루시는 숲을 배회했습니다.]\n"
 						+ "[작은 울음소리조차 크게 번져 걷는 것조차 조심했습니다.]\n"
-						+ "[해금 아이템 : 검은 깃털]"
+						+ "[해금 아이템 : 검은 깃털]\n"
 						+ "[1.돌아간다.]\r");
-				itemCheck = "검은 깃털";
+				
 				if(check == true)
 				{
 					System.out.println("[조건을 만족하여 특수 선택지가 생성되었습니다.]\n");
@@ -269,11 +293,9 @@ public class IncidentEvent {
 			if(result == 5) {
 				System.out.println("[저마다의 색으로 빛나는 보석들이 곳곳에 박혀 눈길을 끕니다.]\n"
 						+ "[루시는 잠시 멈춰서선 아름다운 루비를 발로 굴려봅니다.]\n"
-						+ "[해금 아이템 : 오색보석]"
-						+ "[해금 아이템 : 찬란한 칠색보석]"
+						+ "[해금 아이템 : 오색보석]\n"
+						+ "[해금 아이템 : 찬란한 칠색보석]\n"
 						+ "[1.보석으로 논다.]\r[2.조사한다.]\r");
-				itemCheck = "찬란한 칠색보석";
-				itemCheck = "오색보석";
 				if(tendencyKey == "의심많은" && (intellect >= 25))
 				{
 					System.out.println("[조건을 만족하여 특수 선택지가 생성되었습니다.]\n");
@@ -324,9 +346,9 @@ public class IncidentEvent {
 			if(result == 6) {
 				System.out.println("[눈을 사로잡는 보석들이 발밑에 채일정도로 굴러다니는 동굴의 모습에 루시는 신기함을 느낍니다.]\n"
 						+ "[루시는 비록 아름답기는 하지만 먹을 수도, 가지고 돌아갈 수도 없는 보석에 관심이 옅어집니다.]\n"
-						+ "[해금 아이템 : 영롱하게 빛나는 둥근 수정]"
+						+ "[해금 아이템 : 영롱하게 빛나는 둥근 수정]\n"
 						+ "[1.보석을 조사한다.]\r[2.동굴의 안쪽으로 향한다.]\r");
-				itemCheck = "영롱하게 빛나는 둥근 수정";
+				
 				if(check == true)
 				{
 					System.out.println("[조건을 만족하여 특수 선택지가 생성되었습니다.]\n");
@@ -382,9 +404,8 @@ public class IncidentEvent {
 			if(result == 8) {
 				System.out.println("[도로 위를 달리는 차와 변하지 않는 신호등을 기다리는 사람들.]\n"
 						+ "[루시는 위화감을 느꼈지만 그게 무엇인지 좀처럼 알 수 없었습니다.]\n"
-						+ "[해금 아이템 : 파란 스카프]"
+						+ "[해금 아이템 : 파란 스카프]\n"
 						+ "[1.가만히 서서 관찰한다.]\r[2.돌아간다.]\r");
-				itemCheck = "파란 스카프";
 				if(tendencyKey == "호기심많은" && check == true)
 				{
 					System.out.println("[조건을 만족하여 특수 선택지가 생성되었습니다.]\n");

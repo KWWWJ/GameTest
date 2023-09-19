@@ -1,4 +1,4 @@
-package WhiteCatLucy.character;
+package whiteCatLucy.character;
 
 public class Tendency {
 	//맵에 집입할 수 있는 조건이 되는 성격을 지정할 수 있는 클래스다.

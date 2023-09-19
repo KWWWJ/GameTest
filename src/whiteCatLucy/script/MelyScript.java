@@ -1,4 +1,4 @@
-package WhiteCatLucy.script;
+package whiteCatLucy.script;
 
 public class MelyScript{
 	public void startScript() {

@@ -1,12 +1,13 @@
-package WhiteCatLucy;
+package whiteCatLucy;
 
-import WhiteCatLucy.character.Lucy;
-import WhiteCatLucy.character.STATE;
-import WhiteCatLucy.event.IncidentEvent;
-import WhiteCatLucy.option.UserSelect;
-import WhiteCatLucy.script.MelyScript;
-import WhiteCatLucy.script.SystemScript;
 import java.util.Scanner;
+
+import whiteCatLucy.character.Lucy;
+import whiteCatLucy.character.STATE;
+import whiteCatLucy.event.IncidentEvent;
+import whiteCatLucy.option.UserSelect;
+import whiteCatLucy.script.MelyScript;
+import whiteCatLucy.script.SystemScript;
 
 public class Main {
 	
@@ -47,10 +48,15 @@ public class Main {
 		//게임 시작
 		while(true) {
 			//게임이 종료조건을 만족하기 전까지는 계속해서 진행 가능하도록 반복문을 사용했다.
+			ie.state = 0;
+			//능력치 상승 및 성격 초기화
 			us.userSelect();
 			if(us.tendencyKey != null) {
 				lucy.addTendency(us.tendencyKey);
 				//휴식으로 인한 성격변화는 독립적이라 새로 만들어야 한다.
+				ie.tendencyKey = null;
+				us.event = false;
+				//이벤트가 자동실행되지 않도록 방지
 			}
 			if(us.bagOpen == true) {
 				//가방을 여는 조건을 boolean으로 설정한다.
@@ -62,27 +68,31 @@ public class Main {
 				System.out.println();
 				us.bagOpen = false;
 				//다시 초기화해서 자동으로 작동하지 않도록 설정.
-			}
-			else {
-				
+				us.event = false;
+				//이벤트가 자동실행되지 않도록 방지
 			}
 			//유저가 맵을 이동하거나 휴식하는 것을 선택할 수 있다.
 			//이를 통해 플레이어는 현재 자신의 상태를 바꿔 특정한 맵에 진입할 수 있는 조건을 만족할 수 있게된다.
+			
 			if(us.event == true) {
 				//만약 플래이어가 맵으로 이동하는것을 선택했다면, true가 만족되어 아래 코드를 실행한다.
-				for(int i=0; i<lucy.bag.size()-1; i++) {
-					if(ie.itemCheck == lucy.bag.get(i).toString()) {
+				ie.setResult(us.result);
+				//각기 다른 맵에서 변경된 result의 값을 저장한다.
+				ie.itemCheck();
+				//reusult값 받아서 그에 맞는 열쇠구멍 생성
+				for(int i=0; i<lucy.bag.size(); i++) {
+					if(lucy.bag.get(i).getItem() == ie.itemCheck) {
 						ie.check = true;
+						System.out.println("루시는 배낭을 뒤적였다."+ie.check);
 						System.out.println(ie.check);
 						//조건을 true로 변경해 만족상태로 진입
 					}
 				}
-				ie.setResult(us.result);
-				//각기 다른 맵에서 변경된 result의 값을 저장한다.
+				
 				ie.incidentEvent();
 				//저장된 값을 적용해 해당하는 이벤트를 실행한다.
 				ie.check = false;
-				//다시 조건 초기화
+				//다시 조건을 초기화하여 다음 조건에 대비한다.
 				if(ie.tendencyKey == null) {
 					//받은 성격이 null이면 아무것도 하지 않는다.
 					//이것으로 한 번 사용된 성격이 이후로도 유지될 수 있도록 조정
@@ -94,8 +104,15 @@ public class Main {
 					//성격이 null이 아니면 추가한다.
 					us.key = ie.tendencyKey;
 					//현재 플레이어의 tendencyKey값을 대입해 특정한 맵에 진입가능한 조건을 전달한다.
-					System.out.println("[루시의 상태가 "+ie.tendencyKey+"으로 변경되었습니다.]");
-					//현제 상태 출력
+					if(lucy.tendency.get(0).getKey() == ie.tendencyKey) {
+						
+					}
+					else {
+						System.out.println("[루시의 상태가 "+ie.tendencyKey+"으로 변경되었습니다.]");
+						//현제 상태 출력
+						//이후 이벤트를 실행하지 않아도 출력되는 것을 방지
+					}
+	
 				}
 				ie.result = 100;
 				//값을 초기화하여 중복발생을 막는다.
@@ -106,6 +123,12 @@ public class Main {
 			
 			lucy.addItem(us.item);
 			//이벤트에서 적용된 아이템값을 실제로 저장한다.
+			for (int i=0; i<lucy.bag.size(); i++) {
+				if(lucy.bag.get(i).getItem() == ie.item) {
+					ie.item = null;
+				}
+			}
+			//아이템이 중복이라면 null로 바꾼다.
 			
 			if(ie.item == null) {
 				//만약 플레이어가 이벤트를 통해 아이템을 휙득하지 않았다면 공백을 출력한다.

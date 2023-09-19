@@ -1,4 +1,4 @@
-package WhiteCatLucy.character;
+package whiteCatLucy.character;
 
 import java.util.ArrayList;
 

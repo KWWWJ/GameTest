@@ -1,4 +1,4 @@
-package WhiteCatLucy.character;
+package whiteCatLucy.character;
 
 public class Item {
 	//플레이어가 휙득할 아이템을 만드는 클래스다.

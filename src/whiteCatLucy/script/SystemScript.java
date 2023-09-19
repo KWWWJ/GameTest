@@ -1,6 +1,6 @@
-package WhiteCatLucy.script;
+package whiteCatLucy.script;
 
-import WhiteCatLucy.option.Select;
+import whiteCatLucy.option.Select;
 
 public class SystemScript{
 	Select s = new Select();

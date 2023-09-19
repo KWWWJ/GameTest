@@ -1,4 +1,4 @@
-package WhiteCatLucy.map;
+package whiteCatLucy.map;
 
 public class Road extends BaseMap{
 	

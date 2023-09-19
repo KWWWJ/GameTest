@@ -1,4 +1,4 @@
-package WhiteCatLucy.map;
+package whiteCatLucy.map;
 
 public class Alley extends BaseMap{
 	//골목길 맵, 기본맵을 상속받아 맵을 생성했다.

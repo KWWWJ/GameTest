@@ -1,4 +1,4 @@
-package WhiteCatLucy.character;
+package whiteCatLucy.character;
 
 public enum STATE {
 	CAUTION,

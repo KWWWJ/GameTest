@@ -1,4 +1,4 @@
-package WhiteCatLucy.option;
+package whiteCatLucy.option;
 
 public class Rest {
 	//이후에 여러 이벤트를 랜덤하게 발생하도록 추가할 예정기에 따로 클래스로서 뺴놨다.
