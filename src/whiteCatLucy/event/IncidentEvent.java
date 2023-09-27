@@ -1,7 +1,7 @@
 package whiteCatLucy.event;
 
 import java.util.Scanner;
-
+import whiteCatLucy.character.Monster;
 import whiteCatLucy.character.STATE;
 import whiteCatLucy.map.Ending;
 import whiteCatLucy.option.Select;
@@ -9,17 +9,19 @@ import whiteCatLucy.option.Select;
 
 public class IncidentEvent {
 	//실행되는 이벤트를 모아둔 클래스다.
+	
 	Scanner scan = new Scanner(System.in);
 	//이벤트 상에서 나타나는 선택지를 고르기 위한 스캐너
 	Select s = new Select();
 	//true와 false를 플레이어가 정하게 하는 클래스
+	Monster m = new Monster("몹", 0, 0);
 	public String tendencyKey;
 	//이벤트에 따라 성격을 변화시키고 main에 반영한다. 
 	public String item;
 	//동일하다.
 	public String itemCheck;
 	//아이템 입장 조건 확인을 위한 변수
-	public int result;
+	public int result = 0;
 	//main에서 정해진 result값을 불러와 적용한다.
 	public int cU;
 	public int fU;
@@ -32,22 +34,29 @@ public class IncidentEvent {
 	public boolean check = false;
 	public int state;
 	//enum을 실행한다.
-	
+	public int itemPower = 2;
+	//임의로 아이템의 공격력을 지정했다.
+	public String name;
+	public int hp;
+	public int damage;
+	//플레이어의 스텟정보 메인에서 받아오기
+	public int returnHp;
+	//다시 플레이어에게 적용할 hp
 	public STATE statusUp() {
 		//플레이어에게 어떤 현상이 일어났는가를 알림과 동시에 main의 enum을 실행해 능력치를 반영한다.
 		switch(state) {
 		//능력치 변화를 알린다.
 		case 1:
-			System.out.println("[주의력이 상승했습니다]");
+			System.out.println("[루시의 감이 조금 더 날카로워집니다.]");
 			return STATE.CAUTION;
 		case 2:
-			System.out.println("[포만감이 상승했습니다]");
+			System.out.println("[루시는 쏟아지는 포근함을 느낍니다.]");
 			return STATE.FULLNESS;
 		case 3:
-			System.out.println("[지능이 상승했습니다]");
+			System.out.println("[루시는 조금 더 똑똑해졌습니다.]");
 			return STATE.INTELLECT;
 		default:
-			System.out.println("[능력치는 변동하지 않았습니다.]");
+			System.out.println("[루시는 그루밍하고 있습니다.]");
 			return STATE.RETURN;
 		}
 	}
@@ -90,8 +99,12 @@ public class IncidentEvent {
 		}
 	}
 	
+	
 	public void incidentEvent() {
 	//각 맵당 2개씩 (집, 구름은 1개씩)
+		m.playerStatus(name, hp, damage);
+		m.pHp = 0;
+		
 	
 		if(result == 0) {
 			//result값에 따라 이벤트를 실행한다.
@@ -132,12 +145,13 @@ public class IncidentEvent {
 					if(check == true) {
 						System.out.println("[루시는 용감하게 어둡고 습한 골목길을 지나 검은 나무들이 즐비한 숲을 발견했습니다.]\n"
 								+"[루시는 호기심에 숲을 오래도록 쳐다보았습니다..]");
+						m.shadowTree();
+						returnHp = m.pHp;
 						state = 0;
 						item = "검은 나뭇잎";
 						//아이템을 변수에 저장하고 main에서 실제로 리스트에 집어넣는다.
 						tendencyKey = "호기심많은";
 						//성격을 변수에 저장하고 main에서 실제로 적용한다.
-						
 					}
 					break;
 				default :
@@ -178,6 +192,8 @@ public class IncidentEvent {
 					case 3:
 						if(tendencyKey == "활발한") {
 							System.out.println("[루시는 이 세상 모든 것들이 어쩌면 진짜가 아닐지도 모른다고 생각합니다.]\n");
+							m.violentCat();
+							returnHp = m.pHp;
 							item = "스페이드 에이스";
 							state = 3;
 							iU=+3;
@@ -190,8 +206,8 @@ public class IncidentEvent {
 	
 			if(result == 2) {
 			System.out.println("[루시는 검은 숲에서 기묘한 불길함을 느꼈습니다.]\n"
-					+ "[선뜻 발이 앞으로 나아가지 못했지만 곧 무럭무럭 자라난 호기심으로 숲에 들어선 그녀는\n"
-					+ "귓가를 울려오는 까마귀 울음소리와 기이한 숨소리에 바짝 털을 세웠습니다.]\n"
+					+ "[선뜻 발이 앞으로 나아가지 못했지만 곧 무럭무럭 자라난 호기심으로 숲에 들어선 그녀는]\n"
+					+ "[귓가를 울려오는 까마귀 울음소리와 기이한 숨소리에 바짝 털을 세웠습니다.]\n"
 					+ "[위험해보이기는 했지만 지금 물러선다면 다시 돌아오기 위해서는 상당한 용기가 필요할 것 같습니다.]\n"
 					+ "[1.돌아간다.]\r[2.나아간다.]\r");
 			int input3 =0;
@@ -205,9 +221,11 @@ public class IncidentEvent {
 						
 						break;
 					case 2:
-						System.out.println("[루시는 용기있게 앞발을 내딫였습니다. 축축한 공기, 요동치는 검은 그림자, 불길한 소리 등\r"
-								+ "이곳에는 무언가 비밀이 숨어있을 것만 같습니다..]\n"
+						System.out.println("[루시는 용기있게 앞발을 내딫였습니다. 축축한 공기, 요동치는 검은 그림자, 불길한 소리가 귓가를 맵돕니다]\r"
+								+ "[이곳에는 무언가 비밀이 숨어있을 것만 같습니다..]\n"
 								+ "[주의력이 하락했습니다.]\n");
+						m.shadowTree();
+						returnHp = m.pHp;
 						state = 1;
 						cU=2;
 						item = "그림자 조각";
@@ -242,6 +260,8 @@ public class IncidentEvent {
 					if(check == true) {
 						System.out.println("[어째서 기시감이 느껴질까 의심한 루시는 존재감이 느껴지는 숲 안쪽을 조용히 응시했습니다.]\n"
 								+"[정체를 알 수 없는 괴물과 타오르는 것 같은 그림자, 깨진 유리처럼 금이간 허공이 의심을 더욱 짙게 만듭니다.]");
+						m.ilusionGost();
+						returnHp = m.pHp;
 						item = "예리한 장식물";
 						state = 3;
 						iU=3;
@@ -334,6 +354,8 @@ public class IncidentEvent {
 					if(check == true) {
 					System.out.println("[동굴의 끝에는 빛을 잃은 보석들이 아무렇게나 방치되어있었습니다.]\n"
 								+"[루시는 찬란하게 빛나는 칠색의 보석을 빛을 잃은 보석에 가져다 대었습니다.]");
+					m.jewelGolem();
+					returnHp = m.pHp;
 					state = 1;
 					item = "영롱하게 빛나는 둥근 수정";
 					cU=10;
@@ -391,11 +413,15 @@ public class IncidentEvent {
 				input8 = scan.nextInt();
 				switch(input8) {
 					case 1:
-						System.out.println("[당신은 서늘한 느낌이 목덜미를 스치는 것을 느꼈습니다.]\n");
+						System.out.println("[루시는 서늘한 느낌이 목덜미를 스치는 것을 느꼈습니다.]\n");
+						m.cloudFisher();
+						returnHp = m.pHp;
 						break;
 					case 2:
 						System.out.println("[이윽고 목소리는 기괴한 괴물의 그것으로 변해 끔찍한 소음을 자아냅니다.]");
 						tendencyKey = "두려움";
+						m.cloudFisher();
+						returnHp = m.pHp;
 						break;
 					default :
 						break;
@@ -430,6 +456,8 @@ public class IncidentEvent {
 						if(tendencyKey == "호기심많은" && check == true) {
 						System.out.println("[이상하리만큼 아무런일도 일어나지 않을거란 생각에 루시는 천천히 휭단보도 위를 걸어가기 시작했습니다.]\n"
 								+ "[그리고 그 생각이 맞았다는 듯, 사람들은 못박힌듯 미동도 없었고 자동차는 그저 홀로그램처럼 지나갔습니다.]");
+						m.eyeWithAngelWings();
+						returnHp = m.pHp;
 						state = 1;
 						cU=20;
 						System.out.println("[특수조건을 만족했습니다.]");
@@ -443,7 +471,7 @@ public class IncidentEvent {
 			}
 			if(result == 100) {
 				//만약 이벤트가 발동하지 않는 선택을 한다면 공백을 출력한다.
-				System.out.println();
+				System.out.println("[싸늘한 공기만이 뺨을 스칩니다.]");
 			}
 	}
 	public void setResult(int result) {

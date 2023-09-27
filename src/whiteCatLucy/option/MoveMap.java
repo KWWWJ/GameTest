@@ -45,7 +45,8 @@ public class MoveMap {
 					+"[4.보석동굴]\r"
 					+"[5.빛나는 구름]\r"
 					+"[6.길]");
-			String mapSelect = scanMap.nextLine();
+			String mapSelect = "7";
+			mapSelect = scanMap.nextLine();
 			//이동할 맵을 플레이어가 선택한다.
 			switch(mapSelect) {
 			case "1":

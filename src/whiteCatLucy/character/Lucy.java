@@ -2,7 +2,10 @@ package whiteCatLucy.character;
 
 import java.util.ArrayList;
 
-public class Lucy {
+public class Lucy extends Unit{
+	public Lucy(String name, int healthPoint, int damage) {
+		super(name, healthPoint, damage);
+	}
 	//플레이어 캐릭터를 설정하는 클래스다.
 	private int caution;
 	private int fullness;
@@ -13,6 +16,8 @@ public class Lucy {
 	//플레이어가 휙득하는 아이템 값이 담길 리스트.
 	public ArrayList<Tendency> tendency = new ArrayList<>();
 	//플레이어의 성격이 담길 리스트.
+	public ArrayList<Skill> skill = new ArrayList<>();
+	//플레이어가 해금할 스킬이 들어가는 곳
 	
 	public int getCaution() {
 		return caution;
@@ -36,8 +41,8 @@ public class Lucy {
 	}
 	//각 스테이터스 정보를 변경한다.
 	
-	public void addItem(String item) {
-		Item itemName = new Item(item);
+	public void addItem(String item, int power) {
+		Item itemName = new Item(item, power);
 		//이후 아이템에 추가적인 값을 부여하게되면 모든 값을 Item클래스의 타입으로 저장한다.
 		if(item != null) {
 			//만약 아이템이 null이면 넣지 않음
@@ -79,6 +84,13 @@ public class Lucy {
 		StringBuilder sb = new StringBuilder();
 			for(Tendency item : tendency) {
 				sb.append(item.getKey());
+			}
+		return sb.toString();
+	}
+	public String getSkill() { 
+		StringBuilder sb = new StringBuilder();
+			for(Skill item : skill) {
+				sb.append(item.skillInfo());
 			}
 		return sb.toString();
 	}

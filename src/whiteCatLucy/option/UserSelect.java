@@ -10,7 +10,7 @@ public class UserSelect {
 	//main에서 key에 집어넣은 값을 토대로 맵에 진입할 수 있는지를 따진다.
 	public int result;
 	//이벤트에 진입했을때 맵에서 받은 값을 전달받는다.
-	public String item;
+	public String itemName;
 	//아이템 변수를 생성
 	public boolean event;
 	//이벤트가 실행되는지에 대한 여부
@@ -24,7 +24,8 @@ public class UserSelect {
 				+"[1.맵 이동]\r"
 				+"[2.휴식하기]\r"
 				+"[3.배낭열기]\r\n\n");
-		String mySelect = scan.next();
+		String mySelect = null;
+		mySelect = scan.next();
 		//행동선택, 위에서 적용한 스캐너가 중복 적용되지 않게하기 위해 String타입으로 변환했다. 
 		switch(mySelect) {
 		case "1":
