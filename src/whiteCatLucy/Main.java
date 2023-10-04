@@ -45,7 +45,8 @@ public class Main {
 		System.out.println();
 		System.out.println("[게임이 시작되면 능력치는 초기화된 상태에서 시작됩니다.]");
 		System.out.println();
-		System.out.println("[다음은 플레이어의 행동에 관한 튜토리얼입니다.]\r[플레이어는 맵 이동, 배낭열기, 휴식하기의 행동을 선택할 수 있습니다.]\n\n");
+		script.tutoral4();
+		
 		String next1 = scan.next();
 		//텀을 주는 스케너다.
 

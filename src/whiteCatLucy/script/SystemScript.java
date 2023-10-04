@@ -1,5 +1,7 @@
 package whiteCatLucy.script;
 
+import whiteCatLucy.battle.Battle;
+import whiteCatLucy.character.Monster;
 import whiteCatLucy.option.Select;
 
 public class SystemScript{
@@ -25,10 +27,37 @@ public class SystemScript{
 		}
 	}
 	public void tutoral2() {
-		System.out.println("[한 번 선택지를 고르고 나면 다음 행동을 결정할 수 있는 '메뉴'로 들어가게 됩니다.]\n\n");
+		System.out.println("[다음은 플레이어의 행동에 관한 튜토리얼입니다.]\n");
+		System.out.println("[한 번 선택지를 고르고 나면 다음 행동을 결정할 수 있는 '메뉴'로 들어가게 됩니다.]\n");
+		System.out.println("[플레이어는 맵 이동, 배낭열기, 휴식하기의 행동을 선택할 수 있습니다.]\n");
+		System.out.println("[특히나 휴식하기의 경우 이벤트 이외에 플레이어의 성향을 변경할 수 있는 유일한 행동입니다.]\n");
 	}
 	public void tutoral3() {
 		System.out.println("[이동한 맵에서는 여러가지 이벤트들이 일어나게됩니다.]\r[이벤트에서 선택한 선택지에 따라 다음 나올 이벤트의 내용이 달라질 수 있습니다.]");
+		
+		
+	}
+	public void tutoral4() {
+		System.out.println("\n[이벤트가 일어나면 일정 확률로 전투가 일어나게 됩니다.]\r\n[전투로 휙득하는 아이템은 일반적인 아이템과 같은 효과를 발휘합니다.]");
+		System.out.println("\n[전투에서 플레이어는 일반적인 공격, 아이템 사용, 스킬 사용의 행동을 선택할 수 있습니다.]\n");
+		System.out.println("\n[플레이어와 몬스터는 둘 중 하나의 Hp가 0이하로 떨어질때까지 번갈아가며 각자의 행동을 실행합니다. ]\n");
+		System.out.println("\n[모의 전투를 통해 전투 선택지를 알아보겠습니다.]\n");
+		Battle b = new Battle();
+		Monster m = new Monster("허수아비", 10, 1);
+		
+		b.mDamage = m.attack();
+		b.mHp = m.getHp();
+		b.mName = m.getName();
+		b.pDamage = 10;
+		b.pHp = 100;
+		b.pName = "루시";
+		
+		b.select = false;
+		b.battle();
+		
+		
+		
+		
 		
 	}
 }

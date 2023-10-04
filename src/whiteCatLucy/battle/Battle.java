@@ -227,13 +227,13 @@ public class Battle {
 			
 			if(select == false) {
 				System.out.println("\n");
-			System.out.println("[루시의 hp : "+pHp+"]");
-			System.out.println("["+mName+"의 hp : "+mHp+"]");
-			System.out.println("\n");
-			System.out.println("[행동]\n");
-			System.out.println("[1.공격한다]\n"
-					+"[2.아이템을 사용한다.]\n"
-					+"[3.스킬을 사용한다.]");
+				System.out.println("[루시의 hp : "+pHp+"]");
+				System.out.println("["+mName+"의 hp : "+mHp+"]");
+				System.out.println("\n");
+				System.out.println("[행동]\n");
+				System.out.println("[1.공격한다]\n"
+						+"[2.아이템을 사용한다.]\n"
+						+"[3.스킬을 사용한다.]");
 			}
 			else if(select == true) {
 				
