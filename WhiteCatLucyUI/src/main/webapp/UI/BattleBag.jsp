@@ -10,8 +10,10 @@
 <body>
 	<div class="display">
 		<div class="script"></div>
-		<button type="button" class="button-script button-effect" onclick="다음 스크립트를 불러오기">next</button>
-		<button type="button" class="button-temporary" onclick="location.href='./tutoral.jsp' ">임시 이동버튼</button>
+		<div class="script-bag">아이템 목록</div>
+		<button type="button" class="button-script button-effect" onclick="location.href='./Battle.jsp' ">가방닫기</button>
 	</div>
+	
+
 </body>
 </html>

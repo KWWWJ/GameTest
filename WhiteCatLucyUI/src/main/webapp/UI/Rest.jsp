@@ -9,9 +9,8 @@
 </head>
 <body>
 	<div class="display">
-		<div class="script"></div>
-		<button type="button" class="button-script button-effect" onclick="다음 스크립트를 불러오기">next</button>
-		<button type="button" class="button-temporary" onclick="location.href='./tutoral.jsp' ">임시 이동버튼</button>
+		<div class="script">성향 변화 메세지</div>
+		<button type="button" class="button-script button-effect" onclick="location.href='./PlayerAction.jsp' ">next</button>
 	</div>
 </body>
 </html>
