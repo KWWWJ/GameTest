@@ -27,6 +27,8 @@ public class Battle {
 	int armor = 0;
 	int SpecialArmor = 0;
 	int count = 0;
+	int skillCount = 0;
+	int counvert = 0;
 	
 	public void battleLog() {
 		int damage = 0;
@@ -220,7 +222,44 @@ public class Battle {
 			}
 		}
 	}
-	
+	private void randomSkill(int skillNumber) {
+		switch(skillNumber) {
+		case 0:
+			skillCount++;
+			System.out.println(skillCount+"[강타]");
+			break;
+		case 1:
+			skillCount++;
+			System.out.println(skillCount+"[가벼운 몸놀림]");
+			break;
+		case 2:
+			skillCount++;
+			System.out.println(skillCount+"[알 수 없는 기운]");
+			break;
+		case 3:
+			skillCount++;
+			System.out.println(skillCount+"[따스한 빛]");
+			break;
+		case 4:
+			skillCount++;
+			System.out.println(skillCount+"[무형갑]");
+			break;
+		case 5:
+			skillCount++;
+			System.out.println(skillCount+"[강타]");
+			break;
+		default :
+			break;
+		}
+	}
+	private void convertSkill(int skillNumber) {
+		if(skillNumber == 0) {counvert = 1;}
+		if(skillNumber == 1) {counvert = 2;}
+		if(skillNumber == 2) {counvert = 3;}
+		if(skillNumber == 3) {counvert = 4;}
+		if(skillNumber == 4) {counvert = 5;}
+		if(skillNumber == 5) {counvert = 6;}
+	}
 	public void battle() {
 		System.out.println("[루시는 주변을 배회하던 "+mName+"와/과 마주했습니다!]");
 		while(pHp > 0 && mHp > 0) {
@@ -263,134 +302,32 @@ public class Battle {
 				// 스킬 사용시 6개중 3개만 선택지에 등장. 그중 하나를 선택하는 것으로 스킬을 사용한다.
 				// 중복 허용
 				
-				int count = 0;
-				// 스킬 순서 표시용
-				
-				//각각의 패에 해당하는 스킬의 이름이 출력된다.
-				switch(fs) {
-				case 0:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				case 1:
-					count++;
-					System.out.println(count+"[가벼운 몸놀림]");
-					break;
-				case 2:
-					count++;
-					System.out.println(count+"[알 수 없는 기운]");
-					break;
-				case 3:
-					count++;
-					System.out.println(count+"[따스한 빛]");
-					break;
-				case 4:
-					count++;
-					System.out.println(count+"[무형갑]");
-					break;
-				case 5:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				default :
-					break;
-				}
-				switch(ss) {
-				case 0:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				case 1:
-					count++;
-					System.out.println(count+"[가벼운 몸놀림]");
-					break;
-				case 2:
-					count++;
-					System.out.println(count+"[알 수 없는 기운]");
-					break;
-				case 3:
-					count++;
-					System.out.println(count+"[따스한 빛]");
-					break;
-				case 4:
-					count++;
-					System.out.println(count+"[무형갑]");
-					break;
-				case 5:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				default :
-					break;
-				}
-				switch(ts) {
-				case 0:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				case 1:
-					count++;
-					System.out.println(count+"[가벼운 몸놀림]");
-					break;
-				case 2:
-					count++;
-					System.out.println(count+"[알 수 없는 기운]");
-					break;
-				case 3:
-					count++;
-					System.out.println(count+"[따스한 빛]");
-					break;
-				case 4:
-					count++;
-					System.out.println(count+"[무형갑]");
-					break;
-				case 5:
-					count++;
-					System.out.println(count+"[강타]");
-					break;
-				default :
-					break;
-				}
-				
+				// 뽑힌 스킬 출력
+				randomSkill(fs);
+				randomSkill(ss);
+				randomSkill(ts);
 				
 				System.out.println("\n[사용할 스킬을 선택해주세요.]");
 				
 				int skillSelect = scan.nextInt();
-				int select = 0;
+				
 				// 변환용 변수
 				
 				// 플레이어의 선택과 입력값을 일치시킨다.
 				switch(skillSelect) {
 				case 1:
-					if(fs == 0) {select = 1;}
-					if(fs == 1) {select = 2;}
-					if(fs == 2) {select = 3;}
-					if(fs == 3) {select = 4;}
-					if(fs == 4) {select = 5;}
-					if(fs == 5) {select = 6;}
+					convertSkill(fs);
 					break;
 				case 2:
-					if(ss == 0) {select = 1;}
-					if(ss == 1) {select = 2;}
-					if(ss == 2) {select = 3;}
-					if(ss == 3) {select = 4;}
-					if(ss == 4) {select = 5;}
-					if(ss == 5) {select = 6;}
+					convertSkill(ss);
 					break;
 				case 3:
-					if(ts == 0) {select = 1;}
-					if(ts == 1) {select = 2;}
-					if(ts == 2) {select = 3;}
-					if(ts == 3) {select = 4;}
-					if(ts == 4) {select = 5;}
-					if(ts == 5) {select = 6;}
+					convertSkill(ts);
 					break;
 				}
 				
 				
-				
-				
-				switch(select) {
+				switch(counvert) {
 				case 1:
 					System.out.println("[일반공격의 두배의 데미지를 가한다. 대신 반동으로 10hp가 깍인다.]");
 					System.out.println("[스킬을 사용하시겠습니까? Y / N]");
