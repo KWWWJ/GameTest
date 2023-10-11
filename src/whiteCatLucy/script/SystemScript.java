@@ -40,8 +40,9 @@ public class SystemScript{
 	public void tutoral4() {
 		System.out.println("\n[이벤트가 일어나면 일정 확률로 전투가 일어나게 됩니다.]\r\n[전투로 휙득하는 아이템은 일반적인 아이템과 같은 효과를 발휘합니다.]");
 		System.out.println("\n[전투에서 플레이어는 일반적인 공격, 아이템 사용, 스킬 사용의 행동을 선택할 수 있습니다.]\n");
+		System.out.println("\n[스킬은 랜덤한 3개의 선택지중 1개를 골라 사용하는 방식이며, 같은 선택지가 등장할 수 있습니다.]\n");
 		System.out.println("\n[플레이어와 몬스터는 둘 중 하나의 Hp가 0이하로 떨어질때까지 번갈아가며 각자의 행동을 실행합니다. ]\n");
-		System.out.println("\n[모의 전투를 통해 전투 선택지를 알아보겠습니다.]\n");
+		System.out.println("\n[모의 전투를 통해 흐름을 파악해봅시다.]\n");
 		Battle b = new Battle();
 		Monster m = new Monster("허수아비", 10, 1);
 		

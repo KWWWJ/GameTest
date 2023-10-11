@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+
     pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <link href="../style/style.css" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Intro</title>
 </head>
 <body>
 	<div class="display">

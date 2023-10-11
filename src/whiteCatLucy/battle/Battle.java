@@ -56,7 +56,7 @@ public class Battle {
 		}
 		System.out.println("["+mName+"의 HP : "+mHp+"]\n");
 		if(mHp <= 0) {
-			System.out.println("["+mName+"을 물리쳤습니다!]");
+			System.out.println("["+mName+"을/를 물리쳤습니다!]");
 			System.out.println("[전투의 고양감이 사그라듭니다.]");
 			mLife = false;
 		}
@@ -91,7 +91,7 @@ public class Battle {
 					pHp -= damage;
 				}
 				else {
-					System.out.println("["+mName+"이 공격했지만 루시는 재빠르게 움직여 피해를 입지 않았습니다.]\n");
+					System.out.println("["+mName+"이/가 공격했지만 루시는 재빠르게 움직여 피해를 입지 않았습니다.]\n");
 				}
 			}
 		}
@@ -222,7 +222,7 @@ public class Battle {
 	}
 	
 	public void battle() {
-		System.out.println("[루시는 주변을 배회하던 "+mName+"와 마주했습니다!]");
+		System.out.println("[루시는 주변을 배회하던 "+mName+"와/과 마주했습니다!]");
 		while(pHp > 0 && mHp > 0) {
 			
 			if(select == false) {
@@ -251,15 +251,146 @@ public class Battle {
 				break;
 			case "3":
 				String skillUse = null;
-				System.out.println("[1.강타]");
-				System.out.println("[2.가벼운 몸놀림]");
-				System.out.println("[3.알 수 없는 기운]");
-				System.out.println("[4.따스한 빛]");
-				System.out.println("[5.무형갑]");
-				System.out.println("[6.회피]");
-				int skillSelect = scan.nextInt();
+				//초기화해서 자동으로 넘어가버리는 경우를 제한한다.
 				
+				Random firstSkill = new Random();
+				Random secondSkill = new Random();
+				Random thridSkill = new Random();
+				
+				int fs = firstSkill.nextInt(6);
+				int ss = secondSkill.nextInt(6);
+				int ts = thridSkill.nextInt(6);
+				// 스킬 사용시 6개중 3개만 선택지에 등장. 그중 하나를 선택하는 것으로 스킬을 사용한다.
+				// 중복 허용
+				
+				int count = 0;
+				// 스킬 순서 표시용
+				
+				//각각의 패에 해당하는 스킬의 이름이 출력된다.
+				switch(fs) {
+				case 0:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				case 1:
+					count++;
+					System.out.println(count+"[가벼운 몸놀림]");
+					break;
+				case 2:
+					count++;
+					System.out.println(count+"[알 수 없는 기운]");
+					break;
+				case 3:
+					count++;
+					System.out.println(count+"[따스한 빛]");
+					break;
+				case 4:
+					count++;
+					System.out.println(count+"[무형갑]");
+					break;
+				case 5:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				default :
+					break;
+				}
+				switch(ss) {
+				case 0:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				case 1:
+					count++;
+					System.out.println(count+"[가벼운 몸놀림]");
+					break;
+				case 2:
+					count++;
+					System.out.println(count+"[알 수 없는 기운]");
+					break;
+				case 3:
+					count++;
+					System.out.println(count+"[따스한 빛]");
+					break;
+				case 4:
+					count++;
+					System.out.println(count+"[무형갑]");
+					break;
+				case 5:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				default :
+					break;
+				}
+				switch(ts) {
+				case 0:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				case 1:
+					count++;
+					System.out.println(count+"[가벼운 몸놀림]");
+					break;
+				case 2:
+					count++;
+					System.out.println(count+"[알 수 없는 기운]");
+					break;
+				case 3:
+					count++;
+					System.out.println(count+"[따스한 빛]");
+					break;
+				case 4:
+					count++;
+					System.out.println(count+"[무형갑]");
+					break;
+				case 5:
+					count++;
+					System.out.println(count+"[강타]");
+					break;
+				default :
+					break;
+				}
+				
+				
+				System.out.println("\n[사용할 스킬을 선택해주세요.]");
+				
+				int skillSelect = scan.nextInt();
+				int select = 0;
+				// 변환용 변수
+				
+				// 플레이어의 선택과 입력값을 일치시킨다.
 				switch(skillSelect) {
+				case 1:
+					if(fs == 0) {select = 1;}
+					if(fs == 1) {select = 2;}
+					if(fs == 2) {select = 3;}
+					if(fs == 3) {select = 4;}
+					if(fs == 4) {select = 5;}
+					if(fs == 5) {select = 6;}
+					break;
+				case 2:
+					if(ss == 0) {select = 1;}
+					if(ss == 1) {select = 2;}
+					if(ss == 2) {select = 3;}
+					if(ss == 3) {select = 4;}
+					if(ss == 4) {select = 5;}
+					if(ss == 5) {select = 6;}
+					break;
+				case 3:
+					if(ts == 0) {select = 1;}
+					if(ts == 1) {select = 2;}
+					if(ts == 2) {select = 3;}
+					if(ts == 3) {select = 4;}
+					if(ts == 4) {select = 5;}
+					if(ts == 5) {select = 6;}
+					break;
+				}
+				
+				
+				
+				
+				switch(select) {
 				case 1:
 					System.out.println("[일반공격의 두배의 데미지를 가한다. 대신 반동으로 10hp가 깍인다.]");
 					System.out.println("[스킬을 사용하시겠습니까? Y / N]");
@@ -269,6 +400,7 @@ public class Battle {
 						pDamage = s.attack();
 						pHp -= 10;
 						System.out.println("[루시는 온힘을 다해 강력한 일격을 가했습니다!]");
+						System.out.println("[반동으로 루시의 hp가 10 하락했습니다.]");
 						skillAttack = true;
 						battleLog();
 					}
@@ -361,6 +493,8 @@ public class Battle {
 				default:
 					break;
 				}
+				// 실제 스킬을 사용한 효과가 적용된다.
+				
 				break;
 			default:
 				break;
