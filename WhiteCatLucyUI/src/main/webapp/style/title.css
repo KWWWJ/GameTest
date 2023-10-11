@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.titleImage {
+	position: absolute;
+	left: 12.5%;
+}
+.display-title{
+	position: relative;
+	background-color: rgb(255, 255, 255);
+	width: 1000px;
+	height: 700px;
+	margin: 0 auto;
+	border: 1px solid rgb(0, 0, 0);
+}
+.button-title {
+    position: absolute;
+    top:570px;
+    left: 450px;
+    background-color:transparent;
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 15px;
+    min-height: 30px;
+    min-width: 120px;
+}
+.butten-hover{
+	filter: brightness(1);
+	transition: 0.3s;
+}
+.butten-hover:hover {
+    filter: brightness(0.5);
+   
+}

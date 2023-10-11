@@ -1,0 +1,216 @@
+@charset "UTF-8";
+* {
+    box-sizing: border-box;
+} 
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:50px auto;
+}
+.image {
+	width: 750px;
+	height: 690px;
+}
+
+.display{
+	position: relative;
+	background-color: rgb(0, 0, 0);
+	width: 1000px;
+	height: 700px;
+	margin: 0 auto;
+	border: 1px solid rgb(109, 109, 109);
+}
+
+
+.script {
+	position: absolute;
+	background-color: rgb(231, 231, 231);
+	width: 700px;
+	height: 200px;
+	top: 460px;
+	left: 150px;
+	border-radius:5px;
+	border: 8px solid rgb(109, 109, 109);
+	margin: 0 auto;
+}
+.script-bag {
+	position: absolute;
+	background-color: rgb(231, 231, 231);
+	width: 700px;
+	height: 400px;
+	top: 20px;
+	left: 150px;
+	border-radius:5px;
+	border: 8px solid rgb(109, 109, 109);
+	margin: 0 auto;
+}
+.script-state {
+	position: absolute;
+	background-color: rgb(231, 231, 231);
+	width: 700px;
+	height: 550px;
+	top: 20px;
+	left: 150px;
+	border-radius:5px;
+	border: 8px solid rgb(109, 109, 109);
+	margin: 0 auto;
+}
+
+
+.button-script {
+	position: absolute;
+    top:620px;
+    left: 770px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 70px;
+}
+.button-back {
+	position: absolute;
+    top:650px;
+    left: 900px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 70px;
+}
+.button-temporary {
+	position: absolute;
+    top:750px;
+    left: 900px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 70px;
+}
+.button-move{
+	position: absolute;
+    top:600px;
+    left: 200px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-bag{
+	position: absolute;
+    top:600px;
+    left: 415px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-rest{
+	position: absolute;
+    top:600px;
+    left: 630px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+
+
+
+.button-alley{
+	position: absolute;
+    top:550px;
+    left: 200px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-darkforest{
+	position: absolute;
+    top:550px;
+    left: 415px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-home{
+	position: absolute;
+    top:550px;
+    left: 630px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-jewelcave{
+	position: absolute;
+    top:600px;
+    left: 200px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-cloud{
+	position: absolute;
+    top:600px;
+    left: 415px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-endroad{
+	position: absolute;
+    top:600px;
+    left: 630px;
+    background-color:rgb(192, 192, 192);
+    color: #fff;
+    border:none;
+    border-radius:10px;
+    padding: 5px;
+    min-height: 30px;
+    min-width: 170px;
+}
+.button-effect:hover {
+      background-color:rgb(109, 109, 109);
+      transition: 0.7s;
+  }
+.button-effect:focus {
+    outline-color: transparent;
+    outline-style:solid;
+    box-shadow: 0 0 0 4px #5a01a7;
+}
